@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student's Score Generator</title>
+    <style>
+      body {
+        background-color: rgb(197, 197, 204);
+        margin: 50px;
+        padding: 0;
+      }
+      .Score {
+        display: block;
+        background-color: white;
+        margin-top: 20px;
+        margin: 0 auto;
+        width: 400px;
+        height: 500px;
+      }
+      .Score h5 {
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 50px;
+        color: #191970;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+
+      .formgroup {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+
+      .input_hour {
+        padding: 0.625rem;
+        margin: 20px;
+        border-radius: 4px;
+        resize: vertical;
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+
+      .submit_button {
+        padding: 0.625rem;
+        margin: 0 auto;
+        border-radius: 4px;
+        resize: vertical;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        display: block;
+      }
+
+      .submit_button:hover {
+        background-color: #191970;
+        color: white;
+      }
+      .result_text {
+        font-family: sans-serif;
+        color: #191970;
+        text-align: center;
+
+        font-size: medium;
+        margin: 40px;
+        line-height: 1.75;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="Score">
+      <h5>Student's Score Generator</h5>
+      <!--To Recieve Our Ml Model -->
+      <form action="{{ url_for('Model')}}" method="post">
+        <div class="formgroup">
+          <input
+            type="text"
+            name="hours"
+            placeholder="Input number of hours studied"
+            required="required"
+            class="input_hour"
+          />
+          <button type="submit" class="submit_button">Generate</button>
+        </div>
+      </form>
+      <br />
+      <div class="result_text">{{generated_text}}</div>
+    </div>
+  </body>
+</html>
