@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iris Species Predicter</title>
+    <style>
+      body {
+        background-color: rgb(197, 197, 204);
+        margin: 50px;
+        padding: 0;
+      }
+      .Iris {
+        display: block;
+        background-color: white;
+        margin-top: 20px;
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+      }
+      .Iris h5 {
+        font-family: Impact, Charcoal, sans-serif;
+        font-size: 50px;
+        color: #191970;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .formgroup {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+
+      .input {
+        padding: 0.625rem;
+        margin: 20px;
+        border-radius: 4px;
+        resize: vertical;
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+
+      .submit_button {
+        padding: 0.625rem;
+        margin: 0 auto;
+        border-radius: 4px;
+        resize: vertical;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        display: block;
+      }
+
+      .submit_button:hover {
+        background-color: #191970;
+        color: white;
+      }
+      .result_text {
+        font-family: sans-serif;
+        color: #191970;
+        text-align: center;
+        font-size: medium;
+        margin: 10px;
+        line-height: 1.75;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="Iris">
+      <h5>Iris Specices Predicter</h5>
+      <!--To Recieve Our Ml Model -->
+      <form action="{{ url_for('tree')}}" method="post">
+        <div class="formgroup">
+          <input
+            type="text"
+            name="SepalLengthCm"
+            placeholder="SepalLengthCm"
+            required="required"
+            class="input"
+          />
+          <input
+            type="text"
+            name="SepalWidthCm"
+            placeholder="SepalWidthCm"
+            required="required"
+            class="input"
+          />
+          <input
+            type="text"
+            name="PetalLengthCm"
+            placeholder="PetalLengthCm"
+            required="required"
+            class="input"
+          />
+          <input
+            type="text"
+            name="PetalWidthCm"
+            placeholder="PetalWidthCm"
+            required="required"
+            class="input"
+          />
+          <button type="submit" class="submit_button">Predict Species</button>
+        </div>
+      </form>
+      <div class="result_text">{{generated_text}}</div>
+    </div>
+  </body>
+</html>
